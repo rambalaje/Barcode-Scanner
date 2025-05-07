@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     barcodeInput.addEventListener("input", function () {
         const barcode = barcodeInput.value.trim();
         if (barcode.length >= 10) {
-            fetch("/scan", {
+            fetch("https://barcode-scanner-zirs.onrender.com/scan", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ barcode: barcode })
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.getElementById("downloadBtn").addEventListener("click", function () {
-        fetch("/generate-report")
+        fetch("https://barcode-scanner-zirs.onrender.com/generate-report")
         .then(response => response.blob())
         .then(blob => {
             const link = document.createElement("a");
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("shareEmailBtn").addEventListener("click", function () {
         const email = prompt("Enter recipient email:");
         if (email && email.includes("@")) {
-            fetch("/send-email", {
+            fetch("https://barcode-scanner-zirs.onrender.com/send-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: email })
