@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const barcodeInput = document.getElementById("barcodeInput");
     const studentDetails = document.getElementById("student-details");
 
-    fetch("/reset-scanned-data")
+    fetch("https://barcode-scanner-zirs.onrender.com/reset-scanned-data")
         .then(response => response.json())
         .then(data => console.log(data.message))
         .catch(err => console.error("Error:", err));
