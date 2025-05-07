@@ -79,7 +79,7 @@ app.post('/scan', async (req, res) => {
         res.json({ success: false, message: 'Student not found' });
     } catch (error) {
         console.error('Error in scan:', error);
-        res.status(500).json({ success: false, message: 'Server error' });
+        res.status(500).json({ success: false, message: error });
     }
 });
 
